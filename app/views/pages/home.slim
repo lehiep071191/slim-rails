@@ -1,0 +1,56 @@
+
+
+.slim	
+	marquee
+		p.image
+			| day la doan code slim dau tien cua toi
+		p.image2
+			| day la doan code 2,	
+			span#test
+				|	day la doan code so3
+
+.slim2
+	form#image3
+		p
+			| day la input 1
+			input#image4	type="text" placeholder = "nhap cai gi vao thi nhap" 	
+			button#image5 
+				| bam vao day
+	
+.slim3
+	- array_rails = [1,2,3,4,5,6]
+	- array_rails.map do |f|
+		- if f != 5
+			span
+				input.image type = "button" value = f 
+	button#nhac
+		| chen nhac vao			
+div#chennhac style = "display: none; text-align: center " 
+	<iframe width="805" height="453" src="https://www.youtube.com/embed/W-zeYzukToA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+div.slim
+	= form_for @post do |f|
+		= f.text_field :title, class: "form-control"
+		= f.text_area :body, class: "form-control"	
+		= f.submit 'post'		
+
+	= render @posts
+	p#slim4
+
+javascript:
+	$(document).on('turbolinks:load', function(){
+		$('input:button').click(function(){
+			var value = $(this).val()
+			alert(value + "  " + " lan xin chao cac ban")
+		})
+		$('#nhac').click(function(){
+			$('#chennhac').fadeToggle(2000)
+		})
+		$('#image5').on('click', function(event){
+			var textvalue = $('#image4').val();
+			debugger
+				$('#post_title').val(textvalue)
+			
+		})
+	})

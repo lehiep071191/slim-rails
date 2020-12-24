@@ -1,0 +1,21 @@
+= link_to 'create', new_product_path, class: "btn btn-primary", remote: true
+.form_create
+
+table.products#customers
+		
+	tbody.append_product
+		- @products.each do |product|
+			tr id = "product-#{product.id}"
+				td.image_product
+					= link_to image_tag(product.image_url, width: "70px"), product_path(product)
+				td
+					= product.name
+				td
+					= product.des
+				td#price-product
+					= product.price_product	
+				td	
+					= product.created_at		
+
+				td
+					= link_to 'edit', edit_product_path(product), remote: true	

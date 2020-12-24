@@ -1,0 +1,42 @@
+.checkout
+.data-update
+	- @order.order_details.each do |order_detail| 
+		p
+			= order_detail.product.name 
+			|:  
+			= order_detail.quantity	
+	p		
+		= @order.subtotal
+	p
+		= @order.user_name
+	p	
+		= @order.phone
+	p	
+		= @order.address	
+	input#order_id type = "hidden" value = "#{@order.id}"
+	input#order_user type = "hidden" value = ""
+	input#order_phone type = "hidden" value = ""
+	input#order_address type = "hidden" value = ""
+	button#huydon
+		| huydon
+javascripts:
+	$('#huydon').click(function(){
+	debugger
+		var id = document.getElementById('order_id').value
+		$.ajax({
+			url: '/update_orders/' + id,
+			type: 'put',
+			dataType: 'json',
+			data: {
+				authenticity_token: $('meta[name=csrf-token]').attr('content'),
+				order_status: 6,
+				user_name: $('#order_user').val(),
+				phone: $('#order_phone').val(),
+				address: $('#order_address').val(),
+			} ,
+			success: function(data){
+				alert('ban da huy don hang thanh cong')
+				$('.data-update').html(data.data_update)
+			}
+		})
+	})	

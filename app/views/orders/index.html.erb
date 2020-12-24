@@ -1,0 +1,27 @@
+<table id = "customers">
+	
+<% @orders.each do |order| %>
+	<p>
+		<tr>
+			<td>
+				<%= order.user_name %>
+			</td>
+			<td>
+				<%= order.address %>
+			</td>
+			<td>
+				<%= order.phone %>
+			</td>
+			<td>
+				<%= order.order_status  %>
+			</td>
+			<td>
+				<% order.order_details.each do |order_detail| %>
+					<br><%= order_detail.product.name %>: <%= order_detail.quantity %> 
+				<% end %>
+			</td>
+		</tr>
+
+	</p>
+<% end %>
+</table>

@@ -1,7 +1,19 @@
 class ProductsController < ApplicationController
 	before_action :set_product, only: [:edit, :update, :show]
 	def index
-		@products = Product.all
+		if params['min'].present? and params['max'].present?		
+			@products = Product.max_price(params['max']).min_price(params['min'])
+		elsif params["date"] == 'desc'
+			@products = Product.date_desc	
+		elsif params["date"] == 'asc'	
+			@products = Product.date_asc	
+		elsif params["price"] == 'price_desc'
+			@products = Product.price_desc
+		elsif params["price"] == 'price_asc'
+			@products = Product.price_asc
+		else
+			@products = Product.all													
+		end	
 	end
 	def new
 		@product = Product.new

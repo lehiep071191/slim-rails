@@ -22,13 +22,14 @@
 
   <body style = "background-image: url('<%= @avatar.url %>');background-position: center;
   background-size: cover; ">
+    <%= render 'layouts/header' %>
     <% flash.each do |message_type, message| %>
       <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %> 
+
     <%= render 'layouts/sidebar' %>
     <div class = "container"> 
     <span id = "sidebar-toggle" style = "cursor: pointer;">▶Menu</span>
-   <%= link_to 'checkout', current_order %>
       <%= yield %>
     </div>
     <script type="text/javascript">

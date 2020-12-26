@@ -1,0 +1,15 @@
+
+.header
+	a.logo href="#"
+		| Hiepstore
+	.header-right
+		= link_to 'home', root_url
+		= link_to "checkout", current_order	
+		= link_to 'cart', carts_path
+		a href="#"
+			| help
+.header
+	input#name type="text" placeholder="namechucnangquantrivien"
+	input#pass type="password" placeholder="passchucnangquantrivien"
+	button#authensubmit
+		| authen

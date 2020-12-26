@@ -1,0 +1,11 @@
+= form_for [:admin, @product], remote: true do |f|
+	.col-md-3
+		= f.text_field :name, class: "form-control" 
+	.col-md-3
+		= f.text_field :des, class: "form-control"
+	.col-md-3
+		= f.text_field :price, class: "form-control"	
+	.col-md-3
+		= f.text_field :image_url, class: "form-control"
+	center
+		= f.submit "submit", class: "btn btn-primary"			

@@ -18,7 +18,6 @@ class OrderDetailsController < ApplicationController
 	end	
 	def destroy
 		@order_detail = OrderDetail.find_by id: params[:id]
-		byebug
 		@order_detail.destroy
 		respond_to do |format|
 			format.html{ redirect_to carts_path}

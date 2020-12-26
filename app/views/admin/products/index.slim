@@ -1,7 +1,7 @@
 
 
-= link_to 'create', new_product_path, class: "btn btn-primary authen", remote: true 
-.form_create.authen
+= link_to 'create', new_product_path, class: "btn btn-primary", remote: true
+.form_create
 
 
 .row
@@ -44,6 +44,4 @@
 							= product.created_at		
 
 						td
-							= link_to 'edit', edit_product_path(product), class: 'authen' ,remote: true	
-
-
+							= link_to 'edit', edit_product_path(product), remote: true	

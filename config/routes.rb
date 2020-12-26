@@ -10,5 +10,9 @@ Rails.application.routes.draw do
   resources :orders
   resources :order_details
   resources :update_orders, only: :update
+  namespace :admin do 
+    resources :products
+    resources :orders
+  end  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
